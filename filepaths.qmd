@@ -1,0 +1,86 @@
+
+```{r}
+getwd()
+```
+
+
+```{r}
+list.dirs(path=".", full.names=FALSE, recursive=FALSE)
+```
+```{r}
+NewFolderLocation <- file.path("data", "target2")
+
+dir.create(path=NewFolderLocation)
+```
+
+
+```{r}
+FolderLocation <- file.path("data", "target")
+FolderLocation
+```
+
+
+```{r}
+list.files(path=FolderLocation, full.names=FALSE, recursive=FALSE)
+```
+
+
+```{r}
+# install.packages("stringr") # CRAN
+library(stringr)
+```
+
+```{r}
+list.files("data", full.names=FALSE, recursive=FALSE)
+```
+
+```{r}
+files <- list.files("data", pattern=".fcs", full.names=FALSE, recursive=FALSE)
+files
+```
+
+```{r}
+str_detect(files, "INF")
+```
+
+
+```{r}
+files[str_detect(files, "INF")]
+```
+
+
+```{r}
+files_present <- list.files("data", full.names=FALSE, recursive=FALSE)
+files_present
+```
+
+
+```{r}
+if (!dir.exists(FolderTarget3)){
+    dir.create(FolderTarget3)
+}
+}
+```
+
+
+```{r}
+files_present <- list.files("data", full.names=TRUE, recursive=FALSE)
+files_present
+```
+
+
+```{r}
+Infants <- files_present[str_detect(files_present, "INF")]
+```
+
+
+```{r}
+# Variable Infants containing 4 .fcs file names
+
+file.copy(from=Infants, to=FolderTarget3)
+```
+
+
+```{r}
+Infants
+```
